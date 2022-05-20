@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Navbar';
 import AppRouter from './components/AppRouter';
 import { createGlobalStyle } from 'styled-components';
+import { StyledApp } from './styles/App.styled';
 
 function App() {
 
@@ -16,8 +17,11 @@ function App() {
   return (
     <BrowserRouter>
     <GlobalStyle/>
-      <Header />
-      <AppRouter />
+      <StyledApp>
+        <Header />
+        <AppRouter />
+      </StyledApp>
+      
     </BrowserRouter>
   );
 }

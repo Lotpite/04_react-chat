@@ -6,23 +6,23 @@ export const ChatArea = styled.div`
     border: 2px solid green; 
     border-radius: 10px;
     height: 80vh;
-    width: 800px;
-    // margin-top: 20px;
-    margin-left: 20%;
+    width: 100%;
+    max-width: 728px;
     background-image: url(${bg});
 `
 
 export const TextBlock = styled.div`
     margin: 10px;
     height: 65vh;
+    width: 100%;
+    max-width: 697px;
     overflow-y: scroll;
-
 `
 
 export const MessageItem = styled.div`
     display: flex;
     flex-direction: ${props => props.position === 'sender' ? 'row' : 'row-reverse'};
-    margin-bottom: 20px;
+    margin: 10px;
     
 `
 export const Avatar = styled.img`
@@ -35,7 +35,8 @@ export const TextContent = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 10px;
-    width: 700px;
+    width: 100%;
+    max-width: 685px;
     word-wrap: break-word;
     
 `
@@ -60,16 +61,18 @@ export const Text = styled.div`
 
 export const SendMessageBlock = styled.form`
     position: fixed;
-    bottom: 90px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 10px;
+    width: 100%;
+    max-width: 697px;
 `
 
 export const TextField = styled.input`
     height: 50px;
-    width: 700px;
+    width: 100%;
+    max-width: 685px;
     padding: 5px;
     border-radius: 10px;
     align-self: flex-end;
