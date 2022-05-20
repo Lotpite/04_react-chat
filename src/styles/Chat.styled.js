@@ -65,7 +65,8 @@ export const SendMessageBlock = styled.form`
     flex-direction: row;
     justify-content: space-between;
     margin: 10px;
-    width: 100%;
+    // width: 50%;
+    width: 43%;
     max-width: 697px;
 `
 
