@@ -6,6 +6,7 @@ import { LOGIN_ROUTE } from '../utils/const';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import LogOut from './LogOut';
 import LogIn from './LogIn';
+import { LogoutButton } from '../styles/Logout.styled';
 
 const Header = () => {
     const {auth} = useContext(Context)
@@ -15,9 +16,9 @@ const Header = () => {
         <Navbar>
             {
                 user
-                ? <button onClick={() => auth.signOut()}>Log Out</button>
+                ? <LogoutButton onClick={() => auth.signOut()}>X</LogoutButton>
                 // ? <LogOut onClick={() => auth.signOut()}/>
-                : <Link to={LOGIN_ROUTE}>Log In</Link>
+                : <Link to={LOGIN_ROUTE}></Link>
                 // : <LogIn />
             }
         </Navbar>

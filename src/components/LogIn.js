@@ -16,7 +16,7 @@ const LogIn = () => {
     }
     
     return ( 
-            <LoginButton onClick={signin}>Log In With Google</LoginButton>
+            <LoginButton onClick={signin}>Get Started</LoginButton>
      );
 }
  

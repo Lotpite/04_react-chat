@@ -3,10 +3,11 @@ import bg from '../assets/bg.jpg'
 
 export const ChatArea = styled.div`
     position: relative;
-    border: 2px solid green;
+    border: 2px solid green; 
+    border-radius: 10px;
     height: 80vh;
     width: 800px;
-    margin-top: 20px;
+    // margin-top: 20px;
     margin-left: 20%;
     background-image: url(${bg});
 `
@@ -48,6 +49,7 @@ export const UserName = styled.div`
 
 export const Text = styled.div`
     background-color: rgba(0,2,300,0.35);
+    background-color: ${props => props.position === 'sender'  ? 'rgba(0,2,300,0.45)' : 'rgba(128, 0, 128, 0.6)'};
     min-height: 30px;
     max-width: 500px;
     border-radius: 10px;
@@ -58,7 +60,7 @@ export const Text = styled.div`
 
 export const SendMessageBlock = styled.form`
     position: fixed;
-    bottom: 60px;
+    bottom: 90px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

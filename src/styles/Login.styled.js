@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const LoginButton = styled.button`
+position: absolute;
+top: 300px;
+left: 40%;
 width: 200px;
 height: 50px;
 text-decoration: none;
@@ -14,10 +17,8 @@ float: left;
 margin: 5px;
 padding: 5px 6px 4px 6px;
 background: #F3F3F3;
-border: solid 1px #D9D9D9;
-border-radius: 2px;
--webkit-border-radius: 2px;
--moz-border-radius: 2px;
+border: solid 4px #D9D9D9;
+border-radius: 50px;
 -webkit-transition: border-color .20s;
 -moz-transition: border-color .20s;
 -o-transition: border-color .20s;
