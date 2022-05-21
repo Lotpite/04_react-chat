@@ -37,7 +37,7 @@ const Chat = () => {
                         <MessageItem position={position} key={message.createdTime}>
                             <Avatar src={message.avatar} alt="" />
                             <TextContent>
-                                <UserName position={position}>{message.name}:</UserName>
+                                {/* <UserName position={position}>{message.name}:</UserName> */}
                                 <Text position={position}>{message.text}</Text>
                                 
                             </TextContent>
