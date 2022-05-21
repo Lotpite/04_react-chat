@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LogoutButton = styled.button`
-    margin-top: 15px;
+    margin: 10px 0;
     height: 20px;
     width: 20px;
     font-size: 11px;

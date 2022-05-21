@@ -7,15 +7,15 @@ export const ChatArea = styled.div`
     border-radius: 10px;
     height: 80vh;
     width: 100%;
-    max-width: 728px;
+    height: 100%;
+
+    // max-width: 728px;
     background-image: url(${bg});
 `
 
 export const TextBlock = styled.div`
     margin: 10px;
-    height: 65vh;
-    width: 100%;
-    max-width: 697px;
+    height: 80vh;
     overflow-y: scroll;
 `
 
@@ -35,8 +35,7 @@ export const TextContent = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 10px;
-    width: 100%;
-    max-width: 685px;
+    // max-width: 685px;
     word-wrap: break-word;
     
 `
@@ -60,23 +59,17 @@ export const Text = styled.div`
 `
 
 export const SendMessageBlock = styled.form`
-    position: fixed;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin: 10px;
-    // width: 50%;
-    width: 43%;
-    max-width: 697px;
+    justify-content: space-around;
+    padding: 10px 10px;
 `
 
 export const TextField = styled.input`
     height: 50px;
     width: 100%;
-    max-width: 685px;
     padding: 5px;
     border-radius: 10px;
-    align-self: flex-end;
 `
 
 export const SendButton = styled.button`
@@ -95,7 +88,7 @@ export const SendButton = styled.button`
     -moz-transition: border-color .20s;
     -o-transition: border-color .20s;
     transition: border-color .20s;
-    // height: 29px !important;
+
     cursor: pointer;
     :hover {
         background: #F4F4F4;

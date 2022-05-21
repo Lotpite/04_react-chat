@@ -24,9 +24,8 @@ const Chat = () => {
             text: value,
             createdTime: serverTimestamp()
         })
-        
-        setValue('')
         dummy.current.scrollIntoView()
+        setValue('')
     }
 
     return ( 
@@ -40,15 +39,16 @@ const Chat = () => {
                             <TextContent>
                                 <UserName position={position}>{message.name}:</UserName>
                                 <Text position={position}>{message.text}</Text>
+                                
                             </TextContent>
+                            <span ref={dummy}></span>
                         </MessageItem>
                         )
                 })
                 : 'no messages'}
-                <span ref={dummy}></span>
             </TextBlock>
             <SendMessageBlock>
-                <TextField value={value} onChange={e => setValue(e.target.value)}></TextField>
+                <TextField value={value} onChange={e => setValue(e.target.value) }></TextField>
                 <SendButton type="submit" onClick={sendMessage}>send</SendButton>
             </SendMessageBlock>
         </ChatArea>
