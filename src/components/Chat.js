@@ -1,56 +1,61 @@
-import React, { useContext, useState, useRef } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useCollectionData } from 'react-firebase-hooks/firestore'
-import { collection, query, addDoc, serverTimestamp, orderBy, limit } from "firebase/firestore"; 
+import { collection, query, addDoc, serverTimestamp, orderBy, getDocs } from "firebase/firestore"; 
 import { Context } from '../index';
-import { Avatar, ChatArea, MessageItem, SendButton, SendMessageBlock, Text, TextBlock, TextContent, TextField, UserName } from '../styles/Chat.styled';
+import { Avatar, ChatArea, MessageItem, SendButton, SendMessageBlock, Text, TextBlock, TextContent, TextField } from '../styles/Chat.styled';
 
 const Chat = () => {
 
     const dummy = useRef();
     const {auth, firestore} = useContext(Context);
     const [user] = useAuthState(auth);
-    const [value, setValue] = useState('');
-    const messagesRef = collection(firestore, "messages")
-    const q = query(messagesRef, orderBy("createdTime", "asc"));
-    const [messages] = useCollectionData(q);    
+    const [value, setValue] = useState('');  
+    const [messages, setMessages] = useState([]);  
+
+    useEffect(  () => {
+        const q = query(collection(firestore, "messages"), orderBy("createdTime", "asc"));
+             getDocs(q)
+            .then(res => setMessages(res.docs.map(doc => doc.data())))
+
+    })
 
     const sendMessage = async (e) => {
         e.preventDefault()
-        addDoc(collection(firestore, 'messages'), {
+
+        await addDoc(collection(firestore, 'messages'), {
             userId: user.uid,
             name: user.displayName,
             avatar: user.photoURL,
             text: value,
             createdTime: serverTimestamp()
         })
-        dummy.current.scrollIntoView()
+
+        dummy.current.scrollIntoView({ behavior: 'smooth' })
         setValue('')
     }
 
     return ( 
         <ChatArea>
             <TextBlock>
-                {messages ? messages.map(message => {
+                {messages.map(message => {
                     const position = user.uid === message.userId ? 'sender' : 'receiver'
                         return (
-                        <MessageItem position={position} key={message.createdTime}>
+                        <MessageItem  position={position} key={message.createdTime}>
                             <Avatar src={message.avatar} alt="" />
                             <TextContent>
                                 {/* <UserName position={position}>{message.name}:</UserName> */}
                                 <Text position={position}>{message.text}</Text>
-                                
                             </TextContent>
-                            <span ref={dummy}></span>
                         </MessageItem>
+                        
                         )
-                })
-                : 'no messages'}
+                })}
             </TextBlock>
             <SendMessageBlock>
-                <TextField value={value} onChange={e => setValue(e.target.value) }></TextField>
+                <TextField value={value} placeholder="Type message here" onChange={e => setValue(e.target.value) }></TextField>
                 <SendButton type="submit" onClick={sendMessage}>send</SendButton>
             </SendMessageBlock>
+            <div ref={dummy}></div>
         </ChatArea>
      );
 }

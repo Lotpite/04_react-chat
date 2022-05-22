@@ -6,7 +6,7 @@ export const LoginBlock = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // background-image: url(${bg});
+    // background-image: url(${bg});y
     border-radius: 10px;
     width: 100%;
     height: 200px;

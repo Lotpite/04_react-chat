@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import { React, useContext } from 'react';
+import { Context } from '..';
+import { LogoutButton } from '../styles/Logout.styled';
 
 const LogOut = () => {
+  const {auth} = useContext(Context)
+
     return ( 
-        <button>Log Out</button>
+        <LogoutButton onClick={() => auth.signOut()}>X</LogoutButton>
      );
 }
  
